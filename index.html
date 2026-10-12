@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERRA-NOVA - Mécanisation Agricole & Inclusion Professionnelle</title>
+    <link rel="shortcut icon" href="fav/favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Le projet TERRA-NOVA de gecos formation">
+    <meta property="og:description" content="Nous avions essayé de créer une version site, qui illustre notre projet">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/tgqq4Jjg/agricue.jpg">
+    
+    <!-- Pré-chargement des polices pour une meilleure performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- =================================================================
+    --- DÉBUT DE LA SECTION CSS (STYLE) ---
+    ================================================================== -->
+    <style>
+        /* --- VARIABLES & STYLES GLOBAUX --- */
+        :root {
+            --primary-color: #00ffaa; /* Un vert/turquoise vibrant */
+            --dark-blue: #0a192f;
+            --light-blue: #1e3a5f;
+            --text-color: #ccd6f6;
+            --text-light: #8892b0;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--dark-blue);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2.5rem; text-align: center; }
+        p { color: var(--text-light); }
+        .subtitle { text-align: center; max-width: 600px; margin: 0 auto 3rem auto; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- BOUTONS --- */
+        .cta-button {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(0, 255, 170, 0.1);
+        }
+        .cta-button.large { font-size: 1.1rem; padding: 1rem 2rem; }
+
+
+        /* --- SECTION HÉROS --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* !!! IMPORTANT !!! Placez une image nommée 'hero-background.jpg' dans un dossier 'images' à côté de ce fichier html */
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: white;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+
+        /* --- SECTIONS DE CONTENU --- */
+        .content-section {
+            padding: 6rem 0;
+        }
+        .alternate-bg {
+            background-color: var(--light-blue);
+        }
+
+        /* --- CARTES --- */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--light-blue);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .alternate-bg .card {
+             background: var(--dark-blue);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- GRILLE DE VALEUR --- */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .value-item {
+            padding: 1.5rem;
+        }
+        .value-item h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* --- SECTION IMPACT --- */
+        .impact-container {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .impact-column {
+            flex: 1;
+        }
+        .impact-column ul {
+            list-style: none;
+        }
+        .impact-column li {
+            background: rgba(0, 255, 170, 0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* --- SECTION CONTACT --- */
+        #contact {
+            text-align: center;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--light-blue);
+            color: var(--text-light);
+        }
+
+        /* --- ANIMATIONS AU DÉFILEMENT --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* --- RESPONSIVITÉ --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            .nav-links { display: none; /* Simplification pour l'exemple, un menu hamburger JS serait idéal */}
+            
+            .impact-container {
+                flex-direction: column;
+            }
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- ===============================================================
+    --- FIN DE LA SECTION CSS ---
+    ================================================================ -->
+
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">TERRA-NOVA</a>
+            <ul class="nav-links">
+                <li><a href="#probleme">Le Défi</a></li>
+                <li><a href="#solution">Notre Solution</a></li>
+                <li><a href="#impact">Notre Impact</a></li>
+                <li><a href="#contact" class="cta-button">Rejoignez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SECTION HÉROS -->
+        <section id="hero">
+            <div class="hero-content container">
+                <h1>La nouvelle ère de l'agriculture ivoirienne.</h1>
+                <p>Mécanisation Agricole et Inclusion Professionnelle pour une croissance durable et partagée.</p>
+                <a href="#contact" class="cta-button large">Concrétiser cette ambition</a>
+            </div>
+        </section>
+
+        <!-- SECTION PROBLÈME -->
+        <section id="probleme" class="container content-section">
+            <h2>Constat : Un Secteur Stratégique en Sous-Performance</h2>
+            <p class="subtitle">L'agriculture est le pilier de notre économie, mais fait face à des défis critiques qui freinent son potentiel.</p>
+            <div class="cards-container">
+                <div class="card reveal">
+                    <h3>Faible Productivité</h3>
+                    <p>Les méthodes manuelles limitent les surfaces cultivables à 2-3 hectares par exploitant, contre plus de 50 possibles avec des équipements modernes.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Exclusion Sociale</h3>
+                    <p>Les personnes en situation de handicap sont écartées du secteur, malgré leur potentiel pour des postes techniques et de gestion.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Fuite des Talents</h3>
+                    <p>La pénibilité du travail pousse les jeunes qualifiés vers d'autres secteurs, privant l'agriculture de compétences essentielles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION SOLUTION -->
+        <section id="solution" class="content-section alternate-bg">
+            <div class="container">
+                <h2>Notre Solution : Un Modèle de Service Intégré</h2>
+                <p class="subtitle">TERRA-NOVA n'est pas un vendeur de machines. Nous sommes un partenaire de performance.</p>
+                <div class="cards-container">
+                    <div class="card reveal">
+                        <h3>Location de Machines avec Opérateur</h3>
+                        <p>Nous fournissons un service complet incluant équipement de pointe, opérateur qualifié et maintenance. Le risque est pour nous, la performance pour vous.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Logiciels de Gestion Agricole</h3>
+                        <p>Nous déployons des outils numériques pour optimiser la gestion des parcelles, la planification des cultures et les ressources humaines.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Formation et Accompagnement</h3>
+                        <p>Nous assurons un transfert de compétences pour autonomiser les agriculteurs et garantir une adoption durable de la technologie.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION PROPOSITION DE VALEUR -->
+        <section id="valeur" class="container content-section">
+            <h2>« Produire Plus, Avec Moins d'Efforts, Pour Plus de Revenus »</h2>
+             <div class="value-grid">
+                <div class="value-item reveal">
+                    <h4>Rentabilité Accrue</h4>
+                    <p>Multiplication des rendements par 3 à 5 grâce à la mécanisation.</p>
+                </div>
+                 <div class="value-item reveal">
+                    <h4>Accessibilité</h4>
+                    <p>Modèle de location sans investissement initial massif pour les agriculteurs.</p>
+                </div>
+                 <div class="value-item reveal">
+                    <h4>Efficacité</h4>
+                    <p>Réduction du temps de travail de 70%, libérant du temps pour d'autres activités.</p>
+                </div>
+                 <div class="value-item reveal">
+                    <h4>Inclusion</h4>
+                    <p>Création d'emplois qualifiés et accessibles aux personnes en situation de handicap.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION IMPACT -->
+        <section id="impact" class="content-section alternate-bg">
+            <div class="container">
+                <h2>Double Impact : Économique et Social</h2>
+                <div class="impact-container">
+                    <div class="impact-column reveal">
+                        <h3>Impact Économique</h3>
+                        <ul>
+                            <li><strong>Augmentation des Revenus :</strong> Hausse de 150% à 300% de la productivité par hectare.</li>
+                            <li><strong>Filière d'Excellence :</strong> Développement d'un écosystème de services autour de l'agriculture moderne.</li>
+                            <li><strong>Contribution au PIB :</strong> Renforcement de la compétitivité du secteur agricole ivoirien.</li>
+                        </ul>
+                    </div>
+                    <div class="impact-column reveal">
+                        <h3>Impact Social</h3>
+                        <ul>
+                            <li><strong>Emplois Inclusifs :</strong> Postes d'opérateurs et techniciens accessibles aux personnes handicapées.</li>
+                            <li><strong>Dignité et Autonomie :</strong> Professionnalisation et valorisation du métier d'agriculteur.</li>
+                            <li><strong>Fixation des Talents :</strong> Attractivité renouvelée du secteur pour les jeunes qualifiés.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION APPEL A L'ACTION -->
+        <section id="contact" class="container content-section">
+            <h2>Bâtissons ensemble l'agriculture de demain.</h2>
+            <p class="subtitle">TERRA-NOVA est plus qu'un projet agricole. C'est un levier de transformation pour la Côte d'Ivoire. Nous sollicitons votre soutien pour concrétiser cette ambition.</p>
+            <a href="mailto:contact@terra-nova.ci" class="cta-button large">Contactez notre équipe</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TERRA-NOVA. Tous droits réservés.</p>
+            <p>Projet présenté par l'équipe Les Leaders.</p>
+        </div>
+    </footer>
+
+    <!-- =================================================================
+    --- DÉBUT DE LA SECTION JAVASCRIPT ---
+    ================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- ANIMATION D'APPARITION AU DÉFILEMENT (INTERSECTION OBSERVER) ---
+            // C'est une méthode moderne et performante pour détecter quand un élément est visible.
+            
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observerOptions = {
+                root: null, // observe par rapport au viewport
+                rootMargin: '0px',
+                threshold: 0.1 // se déclenche quand 10% de l'élément est visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si l'élément entre dans le viewport
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optionnel: arrêter d'observer l'élément une fois qu'il est visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Attacher l'observateur à chaque élément avec la classe '.reveal'
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+    <!-- ===============================================================
+    --- FIN DE LA SECTION JAVASCRIPT ---
+    ================================================================ -->
+
+</body>
+</html>
